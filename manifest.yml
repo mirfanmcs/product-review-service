@@ -6,7 +6,7 @@ applications:
   random-route: false
   # We are going to use container to container communication and don't need service to be called publicly.
   # product service will call this service internally. service will be discovered through pivotal service registry.
-  no-route: false
+  no-route: true
   timeout: 180
   path: ./target/productReview-1.0-SNAPSHOT.jar
   services:
