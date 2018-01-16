@@ -1,0 +1,23 @@
+---
+applications:
+- name: product-review-service
+  memory: 1G
+  instances: 1
+  random-route: false
+  # We are going to use container to container communication and don't need service to be called publicly.
+  # product service will call this service internally. service will be discovered through pivotal service registry.
+  no-route: false
+  timeout: 180
+  path: ./target/productReview-1.0-SNAPSHOT.jar
+  services:
+    - ostore-mongodb
+    - ostore-service-registry
+    - ostore-rabbitmq
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+
+
+#Bind to the following services:
+# mongodb (name: ostore-mongodb)
+# service registry (name: ostore-service-registry)
+# Rabbitmq (for zipkin) (name: ostore-rabbitmq)
