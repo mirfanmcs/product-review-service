@@ -17,7 +17,7 @@ public class ProductReviewService {
     private ProductReviewRepository productReviewRepository;
 
 
-    //TODO -> Add the bean of this and use @Autowired
+    
     private ModelMapper modelMapper= new ModelMapper();
 
     public List<ProductReviewDto> getProductReviews() {
